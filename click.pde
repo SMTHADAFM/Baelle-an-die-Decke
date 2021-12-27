@@ -16,7 +16,7 @@ class Ballon {
   void move() {
 
     if (y - ballonWidth <= 0) {
-      speed = 0;
+      y = ballonWidth + 0;
     } else {
       speed = speed + updrift;
       y = y + speed;
