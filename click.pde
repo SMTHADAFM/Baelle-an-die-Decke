@@ -1,29 +1,26 @@
 class Ballon {
   float x;
   float y;
-  float w;
+  float w = 48;
   float speed;
   float updrift;
-  float gravitation;
 
-  Ballon(float tempX, float tempY, float tempW) {
+  Ballon(float tempX, float tempY) {
     x = tempX;
     y = tempY;
-    w = tempW;
     speed = 0;
-    updrift = 0.1;
+    updrift = 0.2;    
   }
-
+  
   void move() {
-    if (y < 10 && speed < 0.5) {
-      return;
-    }
-    if (y - ballonWidth/2 <= 0) {
-      speed = speed * -0.95;
-      //y = ballonWidth/2 ;
-    }
+    // Set new Position
     speed = speed + updrift;
-    y = y - speed;
+    y -= speed;
+    
+    if(y < 0) {
+     speed = speed * -0.55;
+     y = 0;
+    }
   }
 
   void display() {
